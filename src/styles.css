@@ -25,6 +25,7 @@
 
 img {
     max-width: 100%;
+    max-height: 100%;
     display: block;
 }
 
@@ -33,14 +34,14 @@ body {
     color: aliceblue;
     min-height: 100vh;
     font-family: 'Inconsolata', serif;
-}
-
-.image-container {
     background: url(./assets/images/background-desktop.png)
     no-repeat center
     center/cover;
+}
+
+.image-container {
     width: 100%;
-    height: 100vh;
+    height: 100%;
     position: relative;
     overflow-y: hidden;
     display: grid;
@@ -405,95 +406,41 @@ form .generate-ticket:hover {
     }
 }
 
-@media (max-width: 400px) {
-    .form-content {
-        height: 620px;
-    }
-}
-
-@media (max-width: 690px) {
-    .form-content {
-        height: 600px;
-    }
-}
-
-@media (max-height: 750px) {
-.image-container {
-    width: 100%;
-    height: 10%;
-    overflow-y: hidden;
-}
-
-}
-
-@media (max-height: 430px) {
+@media (max-height: 900px) {
     .image-container {
-        width: 100%;
-        height: 50vh;
+        height: 900px;
     }
-    
 }
 
-@media (max-height: 932px) and (orientation: portrait) {
+@media (min-height: 900px) {
     .image-container {
-        width: 100%;
-        height: 100vh;
+        height: 950px;
+    }
+    body{
         overflow-y: hidden;
     }
-
-    .form-content {
-        height: 820px;
-    }
-    
 }
 
-@media (max-height: 890px) and (orientation: landscape) {
+@media (min-height: 1024px) {
     .image-container {
-        width: 100%;
-        height: 100%;
-
+        height: 1024px;
     }
-
-    .form-content {
-        margin-bottom: 21px;
-    }
-
 }
 
-@media (max-height: 80px) and (orientation: landscape) {
-    .form-content {
-        margin-bottom: 0px;
-    }
-
-}
-
-@media (max-height: 853px) and (orientation: landscape) {
-    .form-content {
-        margin-bottom: 53px;
-    }
-
-}
-
-
-@media (max-height: 740px) and (orientation: portrait) {
+@media (min-height: 1180px) {
     .image-container {
-        width: 100%;
-        height: 10%;
-        overflow-y: auto;
-    }
-
-    .form-content {
-        margin-bottom: 10px;
+        height: 1200px;
     }
 }
 
-@media (max-height: 690px) and (orientation: portrait) {
+@media (min-height: 1280px) {
     .image-container {
-        width: 100%;
-        height: 10%;
+        height: 1300px;
     }
+}
 
-    .form-content {
-        margin-bottom: 0px;
+@media (min-height: 1300px) {
+    .image-container {
+        height: 1360px;
     }
 }
