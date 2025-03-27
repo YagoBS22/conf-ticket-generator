@@ -17,7 +17,6 @@
     />
 
     <link rel="stylesheet" href="./src/styles.css" />
-    <script type="module" src="./src/main.js"></script>
     <title>Frontend Mentor | Conference ticket generator</title>
   </head>
 
@@ -45,31 +44,28 @@
       <div class="content-container">
         <div id="form-content" class="form-content">
           <img class="logo" src="./src/assets/images/logo-full.svg" alt="" />
-
+          
+          <!-- Texto Inicial -->
           <div class="headings">
             <h1>Your Journey to Coding Conf 2025 Starts Here!</h1>
             <p>Secure your spot at next year's biggest coding conference!</p>
           </div>
+          <!-- Texto Inicial -->
 
           <form id="ticket-form">
+
+            <!-- Área de upload de imagem/Legendas -->
             <div class="form-item">
+
               <label for="file-input"> Upload Avatar</label>
+
+              <!-- Área de upload de imagem -->
               <div id="drop-area" class="upload-box">
-                <input
-                  type="file"
-                  id="file-input"
-                  class="file-input"
-                  accept="image/png, image/jpeg"
-                />
-                <img
-                  src="./src/assets/images/icon-upload.svg"
-                  alt=""
-                  id="uploaded-image"
-                  class="uploaded-image"
-                />
-                <div id="message-action" class="message-action">
-                  Drag and drop or click to upload
-                </div>
+
+                <input type="file" id="file-input" class="file-input" accept="image/png, image/jpeg"/>
+                <img src="./src/assets/images/icon-upload.svg" alt="" id="uploaded-image" class="uploaded-image"/>
+                <div id="message-action" class="message-action"> Drag and drop or click to upload</div>
+                
                 <div id="file-actions" class="file-actions">
                   <button type="button" id="remove-image" class="remove-image">
                     Remove Image
@@ -78,37 +74,50 @@
                     Change Image
                   </button>
                 </div>
+
               </div>
+              <!-- Área de upload de imagem -->
+
               <p id="upload-hint" class="upload-hint">
                 <img src="./src/assets/images/icon-info.svg" alt="" class="icon-info">
                 Upload your photo (JPG or PNG, max size: 500kb)
               </p>
-            </div>
 
+            </div>
+            <!-- Área de upload de imagem/Legendas -->
+
+            <!-- Área de Input de nome/legendas -->
             <div class="form-item">
               <label for="full-name">Full Name</label>
-              <input type="text" id="full-name" class="required" />
+              <input type="text" id="full-name" class="required">
               <p class="text-hint">
-                <img src="./src/assets/images/icon-info.svg" alt="" class="icon-info-error">
+                <img src="./src/assets/images/icon-info.svg" alt="" class="icon-info-error"/>
                 Please enter your full name
               </p>
             </div>
+            <!-- Área de Input de nome/legendas -->
+
+            <!-- Área de Input de email/legendas -->
             <div class="form-item">
               <label for="email">Email Address</label>
-              <input type="email" id="email" class="required" />
+              <input type="email" id="email" class="required">
               <p class="text-hint">
-                <img src="./src/assets/images/icon-info.svg" alt="" class="icon-info-error">
+                <img src="./src/assets/images/icon-info.svg" alt="" class="icon-info-error"/>
                 Please enter a valid email address.
               </p>
             </div>
+            <!-- Área de Input de email/legendas -->
+
+            <!-- Área de Input de github/legendas -->
             <div class="form-item">
               <label for="github">Github Username</label>
-              <input type="text" id="github" class="required" />
+              <input type="text" id="github" class="required">
               <p class="text-hint">
-                <img src="./src/assets/images/icon-info.svg" alt="" class="icon-info-error">
+                <img src="./src/assets/images/icon-info.svg" alt="" class="icon-info-error"/>
                 Please enter a valid username.
               </p>
             </div>
+            <!-- Área de Input de github/legendas -->
 
             <button type="submit" id="generate-ticket" class="generate-ticket">
               Generate My Ticket
@@ -121,8 +130,7 @@
           <div class="headings">
             <h1>
               Congrats,
-              <span id="header-name" class="gradient-text"></span>
-              ! Your Ticket is Ready!!
+              <span id="header-name" class="gradient-text"></span>! Your Ticket is Ready!!
             </h1>
             <p>
               We've emailed you ticket to
@@ -130,7 +138,7 @@
               and will send updates in the run up to the event!
             </p>
           </div>
-
+          
           <div class="ticket-container">
             <div class="logo">
               <img src="./src/assets/images/logo-mark.svg" alt="" />
@@ -149,12 +157,13 @@
             </div>
             <p class="ticket-number">#01609</p>
           </div>
+
+
         </div>
       </div>
+
     </div>
 
-    <script>
-      src = "main.js";
-    </script>
+    <script type="module" src="./src/main.js"></script>
   </body>
 </html>

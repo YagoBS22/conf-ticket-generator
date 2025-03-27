@@ -18,7 +18,7 @@ const formData = {
     githubUsername: ''
 }
 
-function validateTextInputs(){
+function validateTextInputs() {
     let isValid = true
 
     textInputs.forEach(input => {
@@ -28,47 +28,81 @@ function validateTextInputs(){
             input.classList.add('error')
             hint.classList.add('error')
             isValid = false
-        }
-        else {
+        } else {
             input.classList.remove('error')
             hint.classList.remove('error')
         }
     })
 
     return isValid
+
 }
 
 function validateFile(input, hint) {
     const file = input.files[0]
     let isValid = true
-
     if(!file) {
         hint.classList.add('error')
-        hint.innerHTML = '<img src="./src/assets/images/icon-info.svg" alt="" class="icon-info-error"></img> Please upload an image.'
+        hint.innerHTML = '<img src="./src/assets/images/icon-info.svg" alt="" class="icon-info-error"></img> Please upload an image'
         isValid = false
-    }
-    else{
+    } else {
         const validTypes = ['image/jpeg', 'image/png']
         const maxSize = 500 * 1024
 
         if(!validTypes.includes(file.type)) {
             hint.classList.add('error')
-            hint.innerHTML = '<img src="./src/assets/images/icon-info.svg" alt="" class="icon-info-error"></img> Invalid file type upload, upload a JPG or PNG photo.'
+            hint.innerHTML = '<img src="./src/assets/images/icon-info.svg" alt="" class="icon-info-error"></img> Invalid filetype upload a JPG or PNG photo'
             input.value = ''
             isValid = false
-        }
-        else if(file.size > maxSize) {
+        } else if(file.size > maxSize) {
             hint.classList.add('error')
-            hint.innerHTML = '<img src="./src/assets/images/icon-info.svg" alt="" class="icon-info-error"></img> File too large. Please upload a photo under 500kb'
+            hint.innerHTML = '<img src="./src/assets/images/icon-info.svg" alt="" class="icon-info-error"></img> Image must be less than 500KB'
             input.value = ''
             isValid = false
-        }
-        else{
+        } else {
             hint.classList.remove('error')
-            hint.innerHTML = '<img src="./src/assets/images/icon-info.svg" alt="" class="icon-info"></img> Upload your photo (JPG or PNG, max size: 500KB'
+            hint.innerHTML = '<img src="./src/assets/images/icon-info.svg" alt="" class="icon-info"></img> Image Uploaded!'
             displayUploadedImage(file)
         }
     }
+    return isValid
+}
+
+function displayUploadedImage(file) {
+    const reader = new FileReader()
+    
+    reader.onload = e => {
+        uploadedImage.src = e.target.result
+        fileActions.classList.add('show')
+        messageAction.classList.add('hide')
+    }
+
+    reader.readAsDataURL(file)
+
+}
+
+function resetUpload() {
+    const defaultUploadIcon = './src/assets/images/icon-upload.svg'
+
+    fileInput.value = ''
+    uploadedImage.src = defaultUploadIcon
+    messageAction.classList.remove('hide')
+    fileActions.classList.remove('show')
+    uploadHint.classList.remove('error')
+    uploadHint.innerHTML = '<img src="./src/assets/images/icon-info.svg" alt="" class="icon-info"></img> Upload your photo (JPG or PNG, max size: 500kb)'
+}
+
+function storeAndDisplayFormData() {
+    formData.image = uploadedImage.src
+    formData.name = document.getElementById('full-name').value.trim()
+    formData.email = document.getElementById('email').value.trim()
+    formData.githubUsername = document.getElementById('github').value.trim()
+
+    document.getElementById('header-name').textContent = formData.name
+    document.getElementById('display-name').textContent = formData.name
+    document.getElementById('display-email').textContent = formData.email
+    document.getElementById('display-github').textContent = formData.githubUsername
+    document.getElementById('display-image').src = formData.image
 }
 
 dropArea.addEventListener('click', () => {
@@ -84,7 +118,7 @@ dropArea.addEventListener('drop', (e) => {
     e.preventDefault()
 
     const files = e.dataTransfer.files
-    if(files.lengh > 0){
+    if(files.length > 0) {
         fileInput.files = files
         validateFile(fileInput, uploadHint)
     }
@@ -96,26 +130,26 @@ fileInput.addEventListener('change', () => {
 
 removeImage.addEventListener('click', (e) => {
     e.preventDefault()
-    e.stopPropagation
+    e.stopPropagation()
     resetUpload()
 })
 
 changeImage.addEventListener('click', (e) => {
     e.preventDefault()
-    e.stopPropagation
+    e.stopPropagation()
     fileInput.click()
 })
 
-form.addEventListener('submit', e => {
+form.addEventListener('submit', (e) => {
     e.preventDefault()
 
     const isTextValid = validateTextInputs()
     const isFileValid = validateFile(fileInput, uploadHint)
 
     if(isTextValid && isFileValid) {
-        storeAndDisplatFormData()
+        storeAndDisplayFormData()
 
         document.getElementById('form-content').classList.add('hide')
-        document.getElementById('display-data').style.display='block'
+        document.getElementById('display-data').style.display = 'block'
     }
 })
