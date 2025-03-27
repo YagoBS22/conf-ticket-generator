@@ -42,7 +42,6 @@ body {
     width: 100%;
     height: 100vh;
     position: relative;
-    aspect-ratio: 16/9;
     overflow-y: hidden;
     display: grid;
     place-content: center;
@@ -409,5 +408,92 @@ form .generate-ticket:hover {
 @media (max-width: 400px) {
     .form-content {
         height: 620px;
+    }
+}
+
+@media (max-width: 690px) {
+    .form-content {
+        height: 600px;
+    }
+}
+
+@media (max-height: 750px) {
+.image-container {
+    width: 100%;
+    height: 10%;
+    overflow-y: hidden;
+}
+
+}
+
+@media (max-height: 430px) {
+    .image-container {
+        width: 100%;
+        height: 50vh;
+    }
+    
+}
+
+@media (max-height: 932px) and (orientation: portrait) {
+    .image-container {
+        width: 100%;
+        height: 100vh;
+        overflow-y: hidden;
+    }
+
+    .form-content {
+        height: 820px;
+    }
+    
+}
+
+@media (max-height: 890px) and (orientation: landscape) {
+    .image-container {
+        width: 100%;
+        height: 100%;
+
+    }
+
+    .form-content {
+        margin-bottom: 21px;
+    }
+
+}
+
+@media (max-height: 80px) and (orientation: landscape) {
+    .form-content {
+        margin-bottom: 0px;
+    }
+
+}
+
+@media (max-height: 853px) and (orientation: landscape) {
+    .form-content {
+        margin-bottom: 53px;
+    }
+
+}
+
+
+@media (max-height: 740px) and (orientation: portrait) {
+    .image-container {
+        width: 100%;
+        height: 10%;
+        overflow-y: auto;
+    }
+
+    .form-content {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-height: 690px) and (orientation: portrait) {
+    .image-container {
+        width: 100%;
+        height: 10%;
+    }
+
+    .form-content {
+        margin-bottom: 0px;
     }
 }
